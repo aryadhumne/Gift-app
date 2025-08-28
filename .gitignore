@@ -1,0 +1,59 @@
+# Ionic Framework / Angular / Capacitor / Cordova
+
+# Node modules
+node_modules/
+
+# Build output
+www/
+platforms/
+plugins/
+dist/
+build/
+coverage/
+
+# Capacitor
+ios/
+android/
+electron/
+
+# Cordova
+merges/
+res/native/
+resources/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE / OS specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Package locks (optional: keep if team wants deterministic installs)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ionic specific
+.sourcemaps/
+.sass-cache/
+.tmp/
+.ionic/
+
+# Optional: Firebase/Google Services configs (if used)
+google-services.json
+GoogleService-Info.plist
