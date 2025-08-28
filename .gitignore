@@ -67,5 +67,9 @@ git commit -m "Remove Angular cache files from repo"
 
 # Push again
 git push origin main
+# Angular/Ionic build stuff
+.angular/
+dist/
+node_modules/
 
 
