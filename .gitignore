@@ -59,4 +59,13 @@ google-services.json
 GoogleService-Info.plist
 # Angular cache
 .angular/
+# Remove cache files from staging
+git rm -r --cached .angular/
+
+# Commit the change
+git commit -m "Remove Angular cache files from repo"
+
+# Push again
+git push origin main
+
 
