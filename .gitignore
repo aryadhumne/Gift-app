@@ -57,3 +57,6 @@ pnpm-lock.yaml
 # Optional: Firebase/Google Services configs (if used)
 google-services.json
 GoogleService-Info.plist
+# Angular cache
+.angular/
+
