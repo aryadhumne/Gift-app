@@ -1,0 +1,21 @@
+.login-bg {
+  --background: url('https://m.media-amazon.com/images/I/81GokaE5F0L._UF894,1000_QL80_.jpg')
+    no-repeat center center / cover;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 90%;          /* smaller than full width */
+  max-width: 320px;    /* fixed small size */
+  background: rgba(255, 255, 255, 0.9); /* light transparent */
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}

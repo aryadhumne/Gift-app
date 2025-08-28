@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cart"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Addresses</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="addresses?.length; else emptyState">
+    <ion-item button detail="true" *ngFor="let address of addresses" (click)="selectAddress(address)">
+      <ion-label>
+        <h2>{{ address.street }}</h2>
+        <p>{{ address.city }}, {{ address.state }} - {{ address.zip }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #emptyState>
+    <div class="ion-padding">
+      No saved addresses yet.
+    </div>
+  </ng-template>
+</ion-content>
