@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import {
   IonApp,
   IonRouterOutlet,
@@ -50,7 +51,7 @@ import {
   standalone: true,
   imports: [
     IonList, IonIcon, IonContent, IonText, IonLabel, IonAvatar,
-    IonItem, IonHeader, IonApp, IonRouterOutlet, IonMenu, IonMenuToggle, NgClass,RouterLink,RouterLinkActive
+    IonItem, IonHeader, IonApp, IonRouterOutlet, IonMenu, IonMenuToggle, NgClass,RouterLink,RouterLinkActive,CommonModule
   ],
 })
 export class AppComponent {
@@ -70,6 +71,9 @@ export class AppComponent {
   constructor(private router: Router) { 
       // ✅ inject Router
     this.addAllIcons();
+  }
+   isLoginPage(): boolean {
+    return this.router.url === '/login';
   }
 
   addAllIcons() {

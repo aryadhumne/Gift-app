@@ -1,6 +1,6 @@
 <ion-app>
   <!-- Side Menu -->
-  <ion-menu contentId="main-content">
+  <ion-menu *ngIf="!isLoginPage()" contentId="main-content">
     <ion-header class="ion-no-border">
       <div class="bg"></div>
 
