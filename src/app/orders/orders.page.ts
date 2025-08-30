@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class OrdersPage {
   orders = [
-    { id: 1, product: 'Chocolate Box', price: 499, date: '2025-08-01' },
-    { id: 2, product: 'Perfume Gift Set', price: 1299, date: '2025-08-15' }
+    { id: 1, product: 'Chocolate Box', price: 499 },
+    { id: 2, product: 'Perfume Gift Set', price: 1299 },
+    {id:3,product:'Coloring Kit',price:999,}
   ];
 }

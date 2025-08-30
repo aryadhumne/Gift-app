@@ -35,9 +35,9 @@ export class AddressService {
 
   async getAddresses() {
     const dummyData = [
-      { pincode: '12345', address: '123 Main Street', house_no: 'A-101', city: 'New York', state: 'New York', country: 'USA', save_as: 'Home', landmark: 'Near Central Park', primary: false },
-      { pincode: '54321', address: '456 Elm Street', house_no: 'B-202', city: 'Los Angeles', state: 'California', country: 'USA', save_as: 'Work', landmark: 'Downtown', primary: true },
-      { pincode: '67890', address: '789 Oak Street', house_no: 'C-303', city: 'Chicago', state: 'Illinois', country: 'USA', save_as: 'Other', landmark: 'Near Lake Michigan', primary: false }
+      { pincode: '414002', address: 'Svedi Naka', house_no: '33', city: 'Ahmednagar', state: 'Maharashta', country: 'India', save_as: 'Home', landmark: 'Near Iskon temple', primary: false },
+      { pincode: '414002', address: 'MIDC',' Floor no': '6', city: 'Ahmednagar', state: 'Maharashtra', country: 'India', save_as: 'Work', landmark: 'Near renuka mata mandir', primary: true },
+      { pincode: '414002', address: 'Bhingar', house_no: '4', city: 'Ahmednagar', state: 'Maharashtra', country: 'India', save_as: 'Other', landmark: 'Statebank Office', primary: false }
     ];
     this._addresses.next(dummyData);
     return dummyData;

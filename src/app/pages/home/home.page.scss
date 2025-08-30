@@ -14,6 +14,22 @@ ion-card {
           border-radius: 8px;
         }
     }
+   .gift-toolbar {
+  background: linear-gradient(135deg, #b57edc, #c3aed6, #9370db) !important;
+  color: #fff !important;   // text color
+}
+
+.gift-toolbar ion-title {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.gift-toolbar ion-button,
+.gift-toolbar ion-icon {
+  color: #fff !important;
+}
+
+
 
     ion-label {
         font-size: 0.9rem;

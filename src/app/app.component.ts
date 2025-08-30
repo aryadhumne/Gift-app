@@ -61,13 +61,14 @@ export class AppComponent {
 
   pages = [
     { title: 'Home', url: '/home', icon: 'home', active: true },
-    { title: 'Profile', url: '/profile', icon: 'person', active: false },
+ 
     { title: 'Orders', url: '/orders', icon: 'bag-handle', active: false },
     { title: 'My-Addresses', url: '/my-addresses', icon: 'location', active: false },
     { title: 'About-Us', url: '/about-us', icon: 'information-circle', active: false },
   ];
 
-  constructor(private router: Router) {   // ✅ inject Router
+  constructor(private router: Router) { 
+      // ✅ inject Router
     this.addAllIcons();
   }
 

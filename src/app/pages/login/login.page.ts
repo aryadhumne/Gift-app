@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  standalone: true,   // ✅ Standalone component
-  imports: [IonicModule, CommonModule, FormsModule]
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule],
 })
 export class LoginPage {
   fullName: string = '';
@@ -19,13 +19,11 @@ export class LoginPage {
   constructor(private router: Router) {}
 
   login() {
-    if (this.fullName && this.email && this.password) {
-      this.router.navigate(['/home']);   // ✅ redirect to home
+    console.log(this.fullName, this.email, this.password); // 👀 Debug log
+    if (this.fullName.trim() && this.email.trim() && this.password.trim()) {
+      this.router.navigate(['/home']);
     } else {
       alert('Please fill in all fields!');
     }
   }
-
-
-  }
-
+}
