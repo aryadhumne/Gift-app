@@ -18,7 +18,7 @@ export class ApiService {
     {
       id: '2',
       name: 'Cadbury Celebration Box',
-      price: 900,
+      price: 500,
       status: true,
       rating: 4.7,
       cover: 'assets/gifts/cadbury.jpg',
@@ -27,7 +27,7 @@ export class ApiService {
     {
       id: '3',
       name: 'Mens Watch',
-      price: 1500,
+      price: 3000,
       status: true,
       rating: 4.9,
       cover: 'assets/gifts/menswtach.jpg',
@@ -36,7 +36,7 @@ export class ApiService {
     {
       id: '4',
       name: 'Gucci Handbag',
-      price: 290000,
+      price: 1200,
       status: true,
       rating: 4.8,
       cover: 'assets/gifts/handbag.webp',
@@ -63,7 +63,7 @@ export class ApiService {
     {
       id: '7',
       name: 'Rose Bouquet',
-      price: 4000,
+      price: 400,
       status: true,
       rating: 4.6,
       cover: 'assets/gifts/rose.webp',
@@ -72,7 +72,7 @@ export class ApiService {
     {
       id: '8',
       name: ' Dinner Set',
-      price: 10000,
+      price: 2000,
       status: true,
       rating: 4.9,
       cover: 'assets/gifts/dinnerset.jpg',
@@ -90,7 +90,7 @@ export class ApiService {
     {
       id: '10',
       name: 'Make-Up Kit',
-      price: 999,
+      price: 2000,
       status: true,
       rating: 4.7,
       cover: 'assets/gifts/makeupkit.webp',
@@ -99,7 +99,7 @@ export class ApiService {
     {
       id: '11',
       name: 'Wallet',
-      price: 20000,
+      price: 1000,
       status: true,
       rating: 4.6,
       cover: 'assets/gifts/wallet.jpg',
@@ -108,7 +108,7 @@ export class ApiService {
     {
       id: '12',
       name: 'Dyson Hair-dryer Set',
-      price: 50000,
+      price: 5000,
       status: true,
       rating: 4.5,
       cover: 'assets/gifts/hairdryer.jpg',
@@ -126,7 +126,7 @@ export class ApiService {
     {
       id: '14',
       name: 'Instax Fujifilm Mini 12 Instant Camera',
-      price: 15000,
+      price: 7000,
       status: true,
       rating: 4.5,
       cover: 'assets/gifts/cam.jpg',

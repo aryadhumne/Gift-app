@@ -1,27 +1,15 @@
 <ion-app>
   <!-- Side Menu -->
   <ion-menu *ngIf="!isLoginPage()" contentId="main-content">
-    <ion-header class="ion-no-border">
-      <div class="bg"></div>
-
-      <!-- Profile info -->
-      <ion-item lines="none">
-        <ion-avatar slot="start">
-          <img src="assets/imgs/avatar.jpg" />
-        </ion-avatar>
-
-        <ion-label color="light">
-          {{ profile.name }}
-          <p>
-            <ion-text color="light">
-              {{ profile.email }}
-            </ion-text>
-          </p>
-        </ion-label>
-      </ion-item>
-    </ion-header>
-
     <ion-content>
+      <!-- Custom Gradient Header (no white box) -->
+      <div class="menu-header">
+        <ion-label>
+          <h2>{{ user?.fullName }}</h2>
+          <p>{{ user?.email }}</p>
+        </ion-label>
+      </div>
+
       <!-- Loop through pages -->
       @for(page of pages; track $index) {
         <ion-menu-toggle class="menu-items" [autoHide]="false">
@@ -36,7 +24,6 @@
               [ios]="page.icon + '-outline'"
               [md]="page.icon + '-sharp'">
             </ion-icon>
-
             <ion-label>{{ page.title }}</ion-label>
           </ion-item>
         </ion-menu-toggle>

@@ -44,3 +44,30 @@ ion-badge {
         font-size: 0.6rem;
     }
 }
+/* global.scss */
+.menu-header {
+  background: linear-gradient(135deg, #a068a9, #cb35c1);
+  color: #9660bd;
+  padding: 20px;
+  height: 140px; /* adjust till Home starts */
+  display: flex;
+  align-items: flex-end;
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color:rgb(252, 245, 245)
+}
+
+.menu-header p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+  color: aliceblue;
+}
+ion-header{
+    background: transparent;
+    box-shadow: none;
+}

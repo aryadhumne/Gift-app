@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {
@@ -15,8 +14,7 @@ import {
   IonMenuToggle,
   IonContent, 
   IonIcon, 
-  IonList 
-} from '@ionic/angular/standalone';
+  IonList, IonToolbar } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
   add,
@@ -43,38 +41,45 @@ import {
   ticketOutline,
   trashOutline,
 } from 'ionicons/icons';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [
+  imports: [IonToolbar, 
     IonList, IonIcon, IonContent, IonText, IonLabel, IonAvatar,
-    IonItem, IonHeader, IonApp, IonRouterOutlet, IonMenu, IonMenuToggle, NgClass,RouterLink,RouterLinkActive,CommonModule
+    IonItem, IonHeader, IonApp, IonRouterOutlet, IonMenu, IonMenuToggle, 
+    NgClass, RouterLink, RouterLinkActive, CommonModule
   ],
 })
-export class AppComponent {
-  profile = {
-    name: 'Arya Dhumne',
-    email: 'aryadhumne@gmail.com',
-  };
-
+export class AppComponent implements OnInit {
   pages = [
     { title: 'Home', url: '/home', icon: 'home', active: true },
- 
     { title: 'Orders', url: '/orders', icon: 'bag-handle', active: false },
     { title: 'My-Addresses', url: '/my-addresses', icon: 'location', active: false },
     { title: 'About-Us', url: '/about-us', icon: 'information-circle', active: false },
   ];
 
-  constructor(private router: Router) { 
-      // ✅ inject Router
+  user: any;
+
+  constructor(private router: Router, private userService: UserService) { 
     this.addAllIcons();
   }
-   isLoginPage(): boolean {
+
+  
+  ngOnInit() {
+    this.userService.user$.subscribe(u => {
+      this.user = u;
+    });
+  }
+
+  isLoginPage(): boolean {
     return this.router.url === '/login';
   }
+
+
 
   addAllIcons() {
     addIcons({
@@ -90,14 +95,12 @@ export class AppComponent {
   }
 
   onItemTap(page: any) {
-    // update active state
     if (!page?.active) {
       const index = this.pages.findIndex(x => x.active);
       if (index > -1) this.pages[index].active = false;
       page.active = true;
     }
 
-    // ✅ navigate using Router
     if (page?.url) {
       this.router.navigate([page.url]);
     } else {
@@ -107,6 +110,8 @@ export class AppComponent {
 
   logout() {
     console.log('Logging out...');
-    // add your logout logic here
+    // ✅ clear user info if needed
+    this.user = null;
+    this.router.navigate(['/login']);
   }
 }

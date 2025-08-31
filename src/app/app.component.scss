@@ -8,8 +8,30 @@ ion-header {
         border-radius: 10px 10px 10px 50px;
         margin-top: -3rem;
         margin-left: -1rem;
-        box-shadow: 0 1px 10px rgba(229, 87, 234, 0.5);
+        box-shadow: 0 1px 10px rgba(209, 127, 211, 0.5);
     }
+   .menu-header {
+  background: linear-gradient(135deg, #ff4081, #e91e63);
+  color: #fff;
+  padding: 20px;
+  height: 140px; /* extend height until Home starts (tweak as needed) */
+  display: flex;
+  align-items: flex-end; /* keeps text at bottom */
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.menu-header p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+
     ion-item {
         --background: transparent;
         position: absolute;
