@@ -4,6 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,11 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -23,21 +29,39 @@ export class LoginPage implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^\d{6}$/) // 👈 must be exactly 6 digits
+        Validators.pattern(/^\d{6}$/) // must be exactly 6 digits
       ]),
     });
   }
-Clogin() {
-  if (this.loginForm.valid) {
-    const { fullName, email } = this.loginForm.value;
 
-    // ✅ push user data into BehaviorSubject
-    this.userService.setUser({ fullName, email });
+  Clogin() {
+    if (this.loginForm.valid) {
+      const { fullName, email } = this.loginForm.value;
 
-    this.router.navigate(['/home']);
-  } else {
-    alert('Please fill in all fields correctly!');
+      // Step 1: save in PostgreSQL via backend API
+      this.http.post('http://localhost:5000/api/customers', {
+        full_name: fullName,
+        email: email,
+        phone: '0000000000' // optional, you can bind phone input if you have it
+      }).subscribe({
+        next: (customer: any) => {
+          console.log('✅ Customer saved in DB:', customer);
+          // Step 2: keep in UserService (for frontend state)
+          this.userService.setUser({ fullName: customer.full_name, email: customer.email });
+
+          // Step 3: store customer_id for later (orders/cart)
+          localStorage.setItem('customer_id', customer.customer_id);
+
+          // Step 4: navigate
+          this.router.navigate(['/home']);
+        },
+        error: (err) => {
+          console.error('❌ Failed to save customer:', err);
+          alert('Database error. Check server connection.');
+        }
+      });
+    } else {
+      alert('Please fill in all fields correctly!');
+    }
   }
-}
-
 }
