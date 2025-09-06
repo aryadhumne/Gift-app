@@ -34,30 +34,24 @@ export class LoginPage implements OnInit {
     });
   }
 
-  Clogin() {
+  Clogin(){
     if (this.loginForm.valid) {
       const { fullName, email } = this.loginForm.value;
 
-      // Step 1: save in PostgreSQL via backend API
-      this.http.post('http://localhost:5000/api/customers', {
+      this.http.post<any>('http://localhost:5000/api/customers', {
         full_name: fullName,
         email: email,
-        phone: '0000000000' // optional, you can bind phone input if you have it
+        phone: '0000000000'
       }).subscribe({
-        next: (customer: any) => {
-          console.log('✅ Customer saved in DB:', customer);
-          // Step 2: keep in UserService (for frontend state)
-          this.userService.setUser({ fullName: customer.full_name, email: customer.email });
-
-          // Step 3: store customer_id for later (orders/cart)
+        next: (customer) => {
+          // Save in frontend service
+          this.userService.setUser(customer);
           localStorage.setItem('customer_id', customer.customer_id);
-
-          // Step 4: navigate
           this.router.navigate(['/home']);
         },
         error: (err) => {
-          console.error('❌ Failed to save customer:', err);
-          alert('Database error. Check server connection.');
+          console.error('Failed to save customer:', err);
+          alert('Database error.');
         }
       });
     } else {
